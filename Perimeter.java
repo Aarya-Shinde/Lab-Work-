@@ -1,54 +1,53 @@
-/*2. Write a class with the name Perimeter using function overload that computes the perimeter of a square, a rectangle and a circle.
+package CoreJava;
 
-Formula:
-Perimeter of a square = 4 * s
-Perimeter of a rectangle = 2 * (l + b)
-Perimeter of a circle = 2 * (22/7) * r
+import java.util.Scanner;
 
-From Understanding of Java constructors and inheritance
-*/
-package Anudeep;
-
-public class Perimeter {
-	
-	//Creating method to calculate the parameter of square
-	public int formulasq(int sides) 
-	{ 
-		return 4 * sides; 
+class Perimeter {
+	// Method to calculate the perimeter of a square
+	public double calculatePerimeter(double side) {
+		return 4 * side;
 	}
-	//Creating method to calculate the parameter of rectangle 
-	public int formularec(int length, int breadth) 
-	{ 
+
+	// Method to calculate the perimeter of a rectangle
+	public double calculatePerimeter(double length, double breadth) {
 		return 2 * (length + breadth);
 	}
-	//Creating method to calculate the perimeter of circle
-	public int formulacircle(int radius) 
-	{
-	    return 2 * (22 * radius) / 7;
+
+	// Method to calculate the perimeter of a circle
+	public double calculatePerimeter(double radius) {
+		return 2 * (22.0 / 7.0) * radius;
 	}
 
+	// Main method to test the overloaded methods
 	public static void main(String[] args) {
-		
-		// creating a instance called permieter to access methods
-		Perimeter perimeter = new Perimeter();
-		
-		int square = perimeter.formulasq(10); 
-		// Giving value to method for calculating square
-		System.out.println("Perimeter of  square is: " + square); 
-		
-		// Giving value to method for calculating rectangle
-		int rectangle = perimeter.formularec(10, 1); 
-		System.out.println("Perimeter of rectangle is: " + rectangle); 
-		
-		// Giving value to method for calculating circle
-		int circle = perimeter.formulacircle(5); 
-		System.out.println("Perimeter of circle is: " + circle);
-		
-	}
+		Scanner scanner = new Scanner(System.in);
+		Perimeter perimeterCalculator = new Perimeter();
 
+		// Calculate the perimeter of a square
+		System.out.print("Enter the side length of the square: ");
+		double squareSide = scanner.nextDouble();
+		System.out.println("Perimeter of square with side " + squareSide + " = " + perimeterCalculator.calculatePerimeter(squareSide));
+
+		// Calculate the perimeter of a rectangle
+		System.out.print("Enter the length of the rectangle: ");
+		double rectangleLength = scanner.nextDouble();
+		System.out.print("Enter the breadth of the rectangle: ");
+		double rectangleBreadth = scanner.nextDouble();
+		System.out.println("Perimeter of rectangle with length " + rectangleLength + " and breadth " + rectangleBreadth + " = " + perimeterCalculator.calculatePerimeter(rectangleLength, rectangleBreadth));
+
+		// Calculate the perimeter of a circle
+		System.out.print("Enter the radius of the circle: ");
+		double circleRadius = scanner.nextDouble();
+		System.out.println("Perimeter of circle with radius " + circleRadius + " = " + perimeterCalculator.calculatePerimeter(circleRadius));
+
+
+	}
 }
-/* Output-
-Perimeter of  square is: 40
-Perimeter of rectangle is: 22
-Perimeter of circle is: 31
-*/
+/*output:Enter the side length of the square: 23
+Perimeter of square with side 23.0 = 92.0
+Enter the length of the rectangle: 33
+Enter the breadth of the rectangle: 43
+Perimeter of rectangle with length 33.0 and breadth 43.0 = 152.0
+Enter the radius of the circle: 67
+Perimeter of circle with radius 67.0 = 268.0
+ */
